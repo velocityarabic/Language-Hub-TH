@@ -76,7 +76,8 @@ def generate_scenic_image(category_english: str, category_thai: str, output_path
     en_fonts = [str(Path(__file__).parent / "fonts" / "DejaVuSans-Bold.ttf"),
                 "C:/Windows/Fonts/segoeuib.ttf", "C:/Windows/Fonts/arialbd.ttf",
                 "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
-    lang_fonts = [str(Path(__file__).parent / "fonts" / "DejaVuSans-Bold.ttf"),
+    lang_fonts = [str(Path(__file__).parent / "fonts" / "NotoSansThai-Bold.ttf"),
+                  str(Path(__file__).parent / "fonts" / "DejaVuSans-Bold.ttf"),
                   "C:/Windows/Fonts/arialbd.ttf"]
 
     def load_font(paths, size):

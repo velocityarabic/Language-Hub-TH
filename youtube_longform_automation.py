@@ -607,6 +607,7 @@ def generate_complete_image(phrase_data: dict, category_english: str, output_pat
     ]
 
     lang_font_paths = [
+        str(BASE_DIR / "fonts" / "NotoSansThai-Bold.ttf"),
         str(BASE_DIR / "fonts" / "DejaVuSans-Bold.ttf"),
         "C:/Windows/Fonts/arialbd.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
@@ -756,6 +757,7 @@ def generate_thumbnail(category_english: str, category_thai: str, output_path: s
         "C:/Windows/Fonts/arialbd.ttf",
     ]
     lang_font_paths = [
+        str(BASE_DIR / "fonts" / "NotoSansThai-Bold.ttf"),
         str(BASE_DIR / "fonts" / "DejaVuSans-Bold.ttf"),
         "C:/Windows/Fonts/arialbd.ttf",
     ]
