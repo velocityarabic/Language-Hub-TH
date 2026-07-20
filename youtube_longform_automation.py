@@ -214,16 +214,20 @@ def generate_phrases_for_longform(category_english: str, num_phrases: int) -> li
 
 Style: Make each phrase feel like a {viral_style} - something people would want to share!
 
-CRITICAL RULE - STRICTLY ENFORCE:
-The "english" field must contain PURE ENGLISH words only. ZERO Thai/Special Characters.
-The "thai" field contains the Thai translation in Thai.
+CRITICAL RULE - ABSOLUTELY ZERO Thai IN ENGLISH FIELD:
+The "english" field must contain ONLY English words. NO Thai words at all.
+The "thai" field contains the Thai translation in Thai script.
 The "pronunciation" field is phonetic English spelling.
 
-WRONG (mixed language): {{"english": "Kendine inan on yourself, believe in yourself", ...}}
-WRONG (Thai in english): {{"english": "Follow your hayal and success will come", ...}}
-CORRECT: {{"english": "Make your dreams come true, believe in yourself.", "thai": "ทำให้ความฝันของคุณเป็นจริง เชื่อมั่นในตัวเอง", "pronunciation": "tam-hai khwam-fan khong-khun pen-jing, cheu-a-man nai-tua-eng"}}
+These are INSPIRATIONAL PHRASES about the topic, NOT language-learning tips.
 
-The english field MUST be 100% English words only. NO Thai words allowed.
+WRONG (teaching tip with Thai words): {{"english": "Don't say 'mai pen rai,' it means more than 'no problem.'", ...}}
+WRONG (Thai word in english): {{"english": "Use 'jai yen yen' for take it easy", ...}}
+WRONG (lesson tip): {{"english": "Say 'khrap' for men, 'kha' for women", ...}}
+CORRECT (pure english phrase): {{"english": "Knowledge is the key to wisdom.", "thai": "ความรู้คือกุญแจสู่ปัญญา", "pronunciation": "khwam-ru kheu gun-jae su pan-ya"}}
+CORRECT: {{"english": "A wise person listens more than they speak.", "thai": "คนฉลาดฟังมากกว่าที่พวกเขาพูด", "pronunciation": "khon-cha-lat fang mak-kwa thi-phuak-khao phoot"}}
+
+The english field MUST be 100% English words only. Absolutely NO Thai script or Thai words in the english field.
 
 IMPORTANT RULES FOR NATURAL SPEECH:
 1. Keep phrases SHORT (5-12 words max per language)
@@ -236,8 +240,8 @@ IMPORTANT RULES FOR NATURAL SPEECH:
 8. Vary sentence structure for natural flow
 
 For each phrase:
-1. English phrase (pure English, zero Thai) with commas for natural pauses
-2. Thai translation (Thai only)
+1. English phrase (pure English, zero Thai words) with commas for natural pauses
+2. Thai translation (Thai script only)
 3. Pronunciation guide (phonetic English spelling)
 
 Return as JSON array:
@@ -248,7 +252,7 @@ IMPORTANT: Create FRESH, UNIQUE phrases that haven't been used before.{exclusion
                 payload = {
                     "model": AI_MODEL,
                     "messages": [
-                        {"role": "system", "content": "You are a viral Thai teacher. CRITICAL: The 'english' field must contain PURE ENGLISH words ONLY. NO Thai in english field. Thai goes in the 'thai' field. This is strictly enforced."},
+                        {"role": "system", "content": "You create INSPIRATIONAL PHRASES for YouTube language learning videos. CRITICAL: The 'english' field must be PURE ENGLISH with ZERO Thai words - no Thai script, no Thai words, no romanized Thai. These are universal inspirational phrases, NOT language learning tips. Thai goes ONLY in the 'thai' field."},
                         {"role": "user", "content": prompt}
                     ],
                     "temperature": 1.0
